@@ -2,14 +2,8 @@
 @charset "ISO-8859-1";
 body{
 	
-background-color:white;
-
-}
-
-
-
-body {
-    padding-top: 90px;
+background-color: black;
+padding-top: 0px;
 }
 .panel-login {
 	border-color: #ccc;

@@ -8,8 +8,10 @@
 	
 	object-fit:cover;
 	margin-bottom: .40rem;
-	width: 30%;
-    max-height: 600px;
+	width: 200px;
+    max-height: 300px;
+
+}
 }
 
 .movies {
@@ -71,3 +73,11 @@
 #movies .col-md-3 img{ height:240px}
 }
 
+.valerian img{
+    margin-top:160px;
+    
+}
+.text {
+	margin-top:-200px;
+    margin-left: 280px;
+}
