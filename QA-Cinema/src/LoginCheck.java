@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LoginCheck")
 public class LoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+  
+	
     public LoginCheck() {
         super();
        
@@ -43,6 +41,6 @@ public class LoginCheck extends HttpServlet {
 	{
 		response.sendRedirect("error.jsp");
 	}
-	}
+}
 
 }
