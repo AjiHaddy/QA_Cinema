@@ -8,7 +8,7 @@
 </head>
 <body>
 
-Welcome dude, you are logged in 
+Welcome user, you are logged in 
 
 </body>
 </html>

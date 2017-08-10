@@ -25,9 +25,9 @@
 	
 	<div class="main-content">
 	<div class=" valerian">
-<img src="Images/Valerian.jpg"></div>
+<img src="Images/wonderwoman2.jpg"></div>
 		<div class ="text">
-		<h3><strong>Valerian</strong></h3>
+		<h3><strong>Wonder Woman</strong></h3>
 		<h5>
 		<p>A dark force threatens Alpha, a vast metropolis and home to
 	species from a thousand planets. Special operatives Valerian and

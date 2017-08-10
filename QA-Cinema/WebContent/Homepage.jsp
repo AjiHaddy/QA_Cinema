@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%> <%@include file="./navbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,26 +16,7 @@
 <body>
 
 <div>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  
-  <a href="Homepage.html">
-  <img src="Images/logo2.png" alt="QA Cinema">
-  </a>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left">
-          <li class="active"><a href="Homepage.jsp">Home</a></li>
-        <li><a href="ListingsGallery.jsp">Listings Gallery</a></li>
-        <li><a href="NewReleases.jsp">New Releases</a></li>
-      </ul>
-   <div class = "collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  <ul class="nav navbar-nav navbar-right">
-  <li><a href="">Snacksnmore</a></li>
-   <li><a href="Login.jsp">Login</a></li>
-   <li><a href="login.jsp">Register</a><li>
- </ul>
 
-	</div></div>
-</nav>
 
 <div class="container">
 	<div class="row">
