@@ -1,23 +1,22 @@
-import javax.swing.JPanel;
-import javax.swing.JFrame;
 import java.awt.GridLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Seats extends JFrame{
+
+public class Seats extends JFrame {
 	
 	JPanel p= new JPanel();
 	SeatButton buttons[] = new SeatButton[64];
 
-	
 	public static void main(String args[])
 	
 	{
 		new Seats();
-	
 	}
 	
 	public Seats()
+	
 	{
-		
 		super("SeatSelection");
 		setSize(400,400);
 		setResizable(false);
@@ -26,7 +25,7 @@ public class Seats extends JFrame{
 		
 		for(int i=0; i<64; i++)
 		{
-			buttons[i]= new SeatButton();
+		   buttons[i]= new SeatButton();
 			p.add(buttons[i]);
 		}
 		
@@ -38,3 +37,6 @@ public class Seats extends JFrame{
 	
 	
 }
+
+
+

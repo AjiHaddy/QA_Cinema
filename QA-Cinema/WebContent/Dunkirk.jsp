@@ -39,7 +39,8 @@
 	<p>Classification:12A Type:Action,Adventure,Fantasy</p>
 	<br><br>
 	<a href="Payment.html" class="btn btn-primary"> Book Now</a>
-			<a href="Classification.html" class="btn btn-info"> Movie Classification info</a>
+	<a href="Classification.html" class="btn btn-info"> Movie Classification info</a>
+	
 
 	</h5>
 		</div>

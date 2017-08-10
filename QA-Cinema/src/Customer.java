@@ -8,18 +8,16 @@ public class Customer {
 	String Password="";
 	int age;
 	
-	List<Customer>customer = new ArrayList<Customer>();
-	customer.add(new Customer(1,"Lana Parilla","lp12@gmail.com","lpar",16)));
+	List <Customer> customer = new ArrayList<Customer>();
+	  customer.add(1 + "Lana Parilla" + "lp12@gmail.com"+"lpar"+ 16);
 
 	public static void main(String[] args) {
-		ArrayList<Customer>customer = new ArrayList<Customer>();
-	}
-public static void main (int[] arg) {
-ArrayList<Customer>customer = new ArrayList<Customer>();
-customer.add(new Customer(1,"Lana Parilla","lp12@gmail.com","lpar",16));
+		
+		SeatOccupier seatOcc = new SeatOccupier(1,1,"Adult",2.99);
 	
-	}}
-		public Customer(int cID, String cName, String cEmail,String cPass)
+	}
+
+		public Customer(int cID, String cName, String cEmail, String cPass, int age)
 		
 		{
 			addCustomer(cID, cName, cEmail,cPass, age);
@@ -32,6 +30,7 @@ customer.add(new Customer(1,"Lana Parilla","lp12@gmail.com","lpar",16));
 			
 		}
 		
+		//find the age of customer so it can be categorised to adult, child and concession.
 		public int getAge()
 		{
 			return age;
@@ -40,6 +39,7 @@ customer.add(new Customer(1,"Lana Parilla","lp12@gmail.com","lpar",16));
 		public void setAge(int age)
 		{
 			this.age =age;
+			
 		}
          
          
@@ -47,11 +47,13 @@ customer.add(new Customer(1,"Lana Parilla","lp12@gmail.com","lpar",16));
          public void removeCustomer(int index)
          {
              if(CustomerValid(index)) {
-                 Customer.remove(index);
+   //              Customer.remove(index);
              }
+             
+             //remove the customer if customer requests to be removed
          }
 		private boolean CustomerValid(int index) {
-			// TODO Auto-generated method stub
+	
 			return false;
 		}
 }

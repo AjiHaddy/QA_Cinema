@@ -14,11 +14,10 @@ function getMovies(searchText){
 	axios.get('http://www.omdbap1.com?s='+ searchText).then((response) =>
 	
 	{
-		
 		console.log(response);
 		let movies= response.data.Search;
 		let output="";
-		$.each(movies,(index,mvoie) =>
+		$.each(movies,(index,movie) =>
 		
 		{
 			output+=

@@ -10,25 +10,28 @@ public class SeatButton extends JButton {
 	private static final String P = null;
 
 	{
-		
-	ImageIcon P, S, D;
+	JButton P, S, D = new JButton();
 	byte value =0;
  }
 	
 	
 	public SeatButton()
 	{
-		
-ImageIcon P = new ImageIcon(this.getClass().getResource("Images/disabledSeat.png"));
-ImageIcon S =new ImageIcon(this.getClass().getResource("Images/premiumSeat.png"));
-ImageIcon D =new ImageIcon(this.getClass().getResource("Images/standardSeat.png"));
-	
- 
- P.addActionListener(this.getClass());
+   getButton();
+   this.addActionListener(this.getClass());
 	}
+	
+	public void getButton() 
+	{
+	 P.setIcon("Images/disabledSeat.png");
+	 S =new ImageIcon(this.getClass().getResource("Images/premiumSeat.png"));
+	 D =new ImageIcon(this.getClass().getResource("Images/standardSeat.png"));
+			
+	}
+	
 
 	public void actionPerformed(ActionEvent e) {
-		
+	
 	byte value;
 	value ++;
 		value%=3;
@@ -49,8 +52,7 @@ ImageIcon D =new ImageIcon(this.getClass().getResource("Images/standardSeat.png"
 			default:
 				
 				break;
+				
 		}
 	}
-	
-}
-
+	}
