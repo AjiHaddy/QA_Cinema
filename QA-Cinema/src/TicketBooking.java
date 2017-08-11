@@ -5,11 +5,12 @@ public class TicketBooking {
 	
 	static Scanner scan= new Scanner(System,(e));
 	static String name;
-	static Movie [] movielist = ()
+	String[] movieList = {"Dunkirk", "Valerian", "Wonder Woman", "Girls Trip", "The Hitman's Bodyguard", "Annabelle"};
+
 			
-public static void getMovie() {
+    public static void setMovie() {
 		
-		System.out.println(arg0);
+		System.out.println("");
 		
 	}
 	
@@ -17,7 +18,7 @@ public static void getMovie() {
 
 	public static void main(String[] args) {
 		
-       getName()
+       setName();
 	}
 
 }

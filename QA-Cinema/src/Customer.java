@@ -8,12 +8,13 @@ public class Customer {
 	String Password="";
 	int age;
 	
-	List <Customer> customer = new ArrayList<Customer>();
-	  customer.add(1 + "Lana Parilla" + "lp12@gmail.com"+"lpar"+ 16);
+	
+	String[] customer = {1 + "Lana Parilla" + "lp12@gmail.com"+"lpar"+ 16};
+
 
 	public static void main(String[] args) {
 		
-		SeatOccupier seatOcc = new SeatOccupier(1,1,"Adult",2.99);
+	//	new Customer(int cID, cName, CustomerEmail, CustomerPassword);
 	
 	}
 
@@ -27,6 +28,7 @@ public class Customer {
 		public void addCustomer(int cID,String cName, String cEmail,String cPass, int age)
 		{
 			this.CustomerName= cName;
+			
 			
 		}
 		
