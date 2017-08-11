@@ -14,25 +14,55 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <link rel="stylesheet" href="Movies.css">
 <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://unpkg.com.axios.dist/axios.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://unpkg.com.axios.dist/axios.min.js" type="text/javascript"></script>
 	<script src="Movies.js"/></script>
 	<script>getMovie();</script>
+	<script>
+
+	$('#searchText').keyup(function () {
+		
+		var searchterm = $('#searchText'.val();
+		{
+
+		if (searchterm!='')
+	        {
+			$.post('search.jsp',{searchterm:searchterm},
+					function(data)
+					{
+				$('#searchresults').html(data);
+					});
+			}
+		else
+		{
+			$('#searchresults').html('');
+		}
+				
+	});
+
+	</script>
+
 </head>
 
 
 <body>
 
+<div id = "searchResult">
 
-	
 	<div class="container">
 	<div class="jumbotron" >
 	<h3 class="text-center">Search for Any Movie</h3>
 	<form id="SearchForm">
 	<input type="text" class="form-control" id="searchText" placeholder="Serach Movie">
+	<a href="#"><button id =clickMe button-class="btn btn-success">Search</button></a>
+	
+	
 	</form>
 	</div>
 	</div>
+
+
+
 
 
 <div class="container">
