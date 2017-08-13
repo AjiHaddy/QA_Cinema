@@ -8,13 +8,15 @@ public class Customer {
 	String Password="";
 	int age;
 	
+	private static int totalCustomer;
+	
 	
 	String[] customer = {1 + "Lana Parilla" + "lp12@gmail.com"+"lpar"+ 16};
 
 
 	public static void main(String[] args) {
 		
-	//	new Customer(int cID, cName, CustomerEmail, CustomerPassword);
+	
 	
 	}
 

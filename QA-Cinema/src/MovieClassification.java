@@ -1,75 +1,62 @@
-import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javafx.application.Application;
+import javafx.geometry.*;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
-import javax.swing.ImageIcon;
-import javax.swing.JApplet;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
-public class MovieClassification extends JApplet {
 
-String[] movieList = { "Dunkirk", "Valerian", "Wonder Woman", "Girls Trip", "The Hitman's Bodyguard", "Annabelle"};
+public class MovieClassification extends Application{
+
+	Stage window;
+	Scene scene;
+	Button button;
+	ComboBox<String> box;
+/*
+	String[] movieClass = { "U", "PG", "12A", "12", "15", "18"};
 
   JTextField text = new JTextField(26);
 
-  JComboBox box = new JComboBox();
+  JComboBox<String> box;
 
-  JButton button = new JButton("Add items");
-  
-  ImageIcon img1,img2,img3 = new ImageIcon();
+*/
+ 
+ public MovieClassification()
+ {
 
- int count = 0;
+	 
+	 }
+ 
+ 
+ public static void main(String [] args)
+ {
+	 launch(args);
+ }
+ 
 
-  public void init() {
-	  Container cp = getContentPane();
-	    cp.setLayout(new FlowLayout());
-	    cp.add(text);
-	    cp.add(box);
-	    cp.add(button);
-	    
-    for (int i = 0; i < 6; i++)
-    box.addItem(movieList[count++]);
-    text.setEditable(false);
-    button.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (count < movieList.length)
-          box.addItem(movieList[count++]);
-        cp.add(text= new JTextField(img1));
-      }
-    });
-    box.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-    	  
-        text.setText("index: " + box.getSelectedIndex() + "   "
-            + ((JComboBox) e.getSource()).getSelectedItem());
-      }
-    });
-   
-    img1.add("/Classification/U.png");
-  }
-
-  
-  
-  public static void main(String[] args) {
-    run(new MovieClassification(), 700, 700);
-   
-  }
-
-  public static void run(JApplet applet, int width, int height) {
-    JFrame frame = new JFrame();
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.getContentPane().add(applet);
-    frame.setSize(width, height);
-    applet.init();
-    applet.start();
-    frame.setVisible(true);
-    
-    
-  }
-  
+@Override
+public void start(Stage primaryStage) throws Exception {
+		window= primaryStage;
+		window.setTitle("This is superstition");
+		button = new Button("Submit");
+		
+		box = new ComboBox<>();
+		box.getItems().addAll("U",
+				"PG", 
+				"12A",
+				"12", 
+				"15", 
+				"18");
+		
+		
+		VBox layout = new VBox(10);
+		layout.setPadding(new Insets(20,20,20,20));
+		layout.getChildren().addAll(box,button);
+		
+		
+		scene = new Scene(layout, 300, 250);
+		window.setScene(scene);
+		window.show();
+}
 }

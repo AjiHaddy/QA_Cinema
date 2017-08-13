@@ -1,74 +1,138 @@
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
 
+import javax.swing.*;
+import java.sql.*;
+import java.awt.event.*;
 
+public class Movie extends JFrame implements ActionListener
+{
 
-public class Movie {
+	JLabel LmID,LmTitle,LmActor,LmDirector;
+	JTextField TmID,TmTitle,TmActor,TmDirector;
+	JButton btn_search;
 	
 	
-
-String[] movieList = {" 1) Dunkirk", "Valerian", "Wonder Woman", "Girls Trip", "The Hitman's Bodyguard", "Annabelle"};
-int number = 0;
-
-	public static void main(String[] args) {
+	public Movie ()
+	{
 		
-		new Movie();
+		super("Search Movie");
+		
+		LmID= new JLabel("Movie ID");
+		LmID.setBounds(20,20,200,20);
+		TmID= new JTextField(20);
+		TmID.setBounds(130, 20, 350, 20);
+		
+		btn_search = new JButton("Search");
+		btn_search.setBounds(300,200,80,100);
+		btn_search.addActionListener(this);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setSize(600,600);
+		
+		
+		LmTitle= new JLabel("Title :");
+		LmTitle.setBounds(20, 40, 200, 20);
+		TmTitle= new JTextField(20);
+		TmTitle.setBounds(130, 40, 350, 20);
+		
+		LmActor= new JLabel("Actor :");
+		LmActor.setBounds(20, 60, 200, 20);
+		TmActor= new JTextField(20);
+		TmActor.setBounds(130, 60, 350, 20);
+		///
+		LmDirector= new JLabel("Director :");
+		LmDirector.setBounds(20, 80, 600, 20);
+		
+		TmDirector= new JTextField(20);
+		TmDirector.setBounds(130, 80, 350, 20);
+		
+		setLayout(null);
+		
+		add(LmID);
+		add(TmID);
+		
+		add(LmTitle);
+		add(TmTitle);
+		///
+		add(LmActor);
+		add(TmActor);
+		///
+		add(LmDirector);
+		add(TmDirector);
+		
+		add(btn_search);
+	
+		
 	}
-		
-		public Movie()
-		    {
-		    	
-			 getMovie();
-		    }
-				
-		public static void getMovie()
-				{
-					System.out.println("Select your movie");
-					for(int i= 0; i <movieList.length; i++)
-					{
-						System.out.println(movieList[i]);
-					}
-					
-					number = scan.nextInt();
-					System.out.println("");
-					getSeats();
-				}
+	
 
-		    }
+	
+	@Override
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		Function f = new Function();
+		ResultSet rs = null;
+		String mID = "movieID";
+		String mTitle ="movieTitle";
+		String mActor = "movieActor";
+		String mDirector= "movieDirector";
+		
+		rs = f.find(TmID.getText());
+		try {
+			if(rs.next())
+			{
+				TmID.setText(rs.getString(mID));
+				TmTitle.setText(rs.getString(mTitle));
+				TmActor.setText(rs.getString(mActor));
+				TmDirector.setText(rs.getString(mDirector));
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "No Data for this ID");
+			}
+		}catch(Exception ex) {
+			JOptionPane.showMessageDialog(null,ex.getMessage());
+			}
+		
+	}
+	
+	public static class Function {
+		
+	Connection con = null;
+	ResultSet rs = null;
+	PreparedStatement ps = null;
+	public static final String URL = "jdbc:mysql://localhost:3306/qa_cinema";
+	public static final  String user ="root";
+	public static final String pass ="root";
+	
+	public ResultSet find(String search)
+	{
 		  
-		   
-		    }
-
-	/*
-	 * 
-		List<List<String>> myMovie = new ArrayList<List<String>>();
-		myMovie.add(new ArrayList<String>());
+		try {
 		
-		myMovie.get(0).add("Title: Dunkirk "+ "Actors: Harry Styles, Aneurin Barnard" + 
-				"Director: Christopher Nolan");
-		String result = myMovie.get(0).get(0);
-		
-		myMovie.get(1).add("Title: Valerian "+ "Actors: Rihanna, Dane Cross" +
-		"Director: Luc Resson");
-		
-		myMovie.get(2).add("Title: Wonder Woman"+ "Actors: Gal Gadot, Chris Pine" + 
-		"Director: Christopher Nolan");
-		
-		myMovie.get(3).add("Title: Justice League "+ "Actors: Harry Styles, Aneurin Barnard" +
-		"Director: Christopher Nolan");
-		
-		myMovie.get(4).add("Title: The Bodyguard's Hitman "+ "Actors: Harry Styles, Aneurin Barnard" +
-		"Director: Christopher Nolan");
-		
-		myMovie.get(5).add("Title: The Nut job 2 "+ "Actors: Harry Styles, Aneurin Barnard" + 
-		"Director: Christopher Nolan");
-		*/
-	
-	
+		con = DriverManager.getConnection(URL,user,pass);
+		ps= con.prepareStatement("select * from Movie where movieID = ?");
+		ps.setString(1, search);
+		rs= ps.executeQuery();
 	
 		
+	}catch(Exception ex) {
+		JOptionPane.showMessageDialog(null, ex.getMessage());
 	}
+	return rs;  
+	}
+	
+	 
+	
 
-   
-   
+	
+	public static void main (String[] args)
+	{
+		new Movie();
+	
+	}
+	}
+}
+	
+

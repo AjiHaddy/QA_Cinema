@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%> <%@include file="./navbar.jsp" %>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,8 +11,35 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-1.11.1.min.js" ></script>
 
 <body>
+
+<script>
+function submitEmail() {
+    var contactName = $('#name').val();
+    var contactEmail = $('#email').val();
+    var contactMessage = $('#message').val();
+
+    var url = 'http://localhost:8080/QA-Cinema/Homepage.jsp';
+    $.post(url,
+         {
+            name : contactName,
+            email: contactEmail,
+            message: contactMessage
+        
+},
+
+function(data)
+{
+	alert('Your Email has been sent successfully');
+});
+	
+}
+
+
+
+</script>
 
 
 <div class="container">
@@ -50,7 +77,7 @@
            
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" onclick="submitEmail()" class="btn btn-primary btn-lg">Submit</button>
               </div>
             </div>
           </fieldset>

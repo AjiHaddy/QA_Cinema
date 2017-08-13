@@ -1,54 +1,118 @@
-import java.util.Scanner;
 
+import javax.swing.*;
+import java.sql.*;
+import java.awt.event.*;
+import javafx.*;
+import javafx.scene.control.DatePicker;
 
-public class TicketBooking {
+public class TicketBooking extends JFrame implements ActionListener
+{
+
+	DatePicker date;
+	Movie mymovie;
+	Seats mySeats;
+	Screen myScreen;
+	MovieClassification classification;
+	CustomerType customer;
+	JTextField TmID,TmTitle,TmActor,TmDirector;
+	JButton btn_search;
 	
-	static Scanner scan= new Scanner(System.in);
-	static String name;
-	static Movie [] movieLists;
-    static int number;
-			
-	public static void getName()
+	
+	public TicketBooking ()
 	{
-		System.out.println("Enter your name");
-		name=scan.nextLine();
-		System.out.println("Hello " + name);
-		getMovie();
+		super("Book a ticket");
+		
+		mymovie = new Movie();
+		mymovie.add(TmTitle);
+		
+		classification = new MovieClassification();
+		classification.add(classification);
+		
+	
+		mySeats = new Seats();
+		mySeats.equals(obj);
+		
+		customer = new CustomerType();
+		customer.c.toString();
 		
 		
-		//get customer to store in array . Store in Customer Class.
+		date = new DatePicker();
+		date.setPromptText("Date of Booking");
+		date.setMaxWidth(300);
+	
+		
 	}
 	
+
 	
-	public static void getMovie()
+	@Override
+	
+	public void actionPerformed(ActionEvent e)
 	{
-		System.out.println("Select your movie");
-		for(int i= 0; i<movieLists.length; i++)
-		{
-			System.out.println(movieLists[i]);
-		}
+		Function f = new Function();
+		ResultSet rs = null;
+		String mID = "movieID";
+		String mTitle ="movieTitle";
+		String mActor = "movieActor";
+		String mDirector= "movieDirector";
 		
-		number = scan.nextInt();
-		System.out.println("You have selected the movie " 
-		+ movieLists[number-1].substring(3, movieLists[number-1].length()));
-		getSeats();
+		rs = f.find(TmID.getText());
+		try {
+			if(rs.next())
+			{
+				TmID.setText(rs.getString(mID));
+				TmTitle.setText(rs.getString(mTitle));
+				TmActor.setText(rs.getString(mActor));
+				TmDirector.setText(rs.getString(mDirector));
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "No Data for this ID");
+			}
+		}catch(Exception ex) {
+			JOptionPane.showMessageDialog(null,ex.getMessage());
+			}
+		
 	}
 	
-
+	public static class Function {
+		
+	Connection con = null;
+	ResultSet rs = null;
+	PreparedStatement ps = null;
 	
-	public static void getSeats()
+	
+	public static final String URL = "jdbc:mysql://localhost:3306/qa_cinema";
+	public static final  String user ="root";
+	public static final String pass ="root";
+	
+	public ResultSet find(String search)
 	{
-		System.out.println("");
-		String seats=scan.next();
-		System.out.println("");
-	}
-	
-	
-			
-
-	public static void main(String[] args) {
+		  
+		try {
 		
-       getName();
+		con = DriverManager.getConnection(URL,user,pass);
+		ps= con.prepareStatement("select * from Movie where movieID = ?");
+		ps.setString(1, search);
+		rs= ps.executeQuery();
+	
+		
+	}catch(Exception ex) {
+		JOptionPane.showMessageDialog(null, ex.getMessage());
 	}
+	return rs;  
+	}
+	
+	 
+	
 
+	
+	public static void main (String[] args)
+	{
+		new Movie();
+	
+	}
+	}
 }
+	
+
