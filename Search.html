@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+    <!--Css Here!-->
+      <style>
+          li{
+              cursor:pointer
+          }
+          
+          li:hover
+          {
+              background-color:bisque
+          }
+        
+        </style>  
+        
+    </head>
+    
+    <body>
+    <div class = "container">
+       <div ng-app ="myApp"> <div ng-controller="usercontrol">
+           <label>Search for Movie</label>
+           <input type ="text" id= "movie" ng-model="movie" ng-keyup="complete(movie)" class= "form-control">
+           
+           <ul class ="list-group" ng-model ="hide" ng-hide ="hide">
+           <li class = "list-group-item" ng-repeat ="moviedata in filterMovie" ng-click="filltxtBox"> {{moviedata}}</li> 
+           </ul>
+           
+           </div>      
+        </div>
+        </div>
+    </body>
+</html>
+        
+<!--Javascript below !-->
+
+<script>
+      var app = angular.module("myApp", []);
+     app.controller("usercontrol", function($scope){
+        
+         $scope.MovieList = ["Dunkirk","Valerian", "Justice League","Girl's night", "Rough night", "Wonderwoman","The nutcracker2","The Hitman's bodyguard", "Annabelle", "Defenders", "The Flash"];
+         
+         $scope.complete =function(string)
+         {
+             var output = [];
+             angular.forEach($scope.MovieList, function(movie){
+                 
+                 if(movie.toLowerCase().indexOf(string.toLowerCase()) >= 0)
+                 
+                 {
+                     output.push(movie);
+                 }
+                 
+             });
+                 
+             
+             $scope.filterMovie=output;
+             }
+            
+            $scope.filltxtBox = function(string){
+                
+            $scope.movie= string;
+            $scope.hide=true;
+             }
+         
+     });
+    
+        
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
